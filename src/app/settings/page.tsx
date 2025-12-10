@@ -12,7 +12,7 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
+      <Header variant="private" />
       
       <main className="flex-1 w-full max-w-5xl mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-8">

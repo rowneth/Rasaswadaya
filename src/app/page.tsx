@@ -41,7 +41,7 @@ export default function Home() {
               <div className="relative rounded-[3rem] overflow-hidden border-4 border-white/5 shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500">
                 <div className="aspect-[4/5] relative">
                   <Image 
-                    src="https://images.unsplash.com/photo-1459749411177-2a296581dca5?q=80&w=1000&auto=format&fit=crop" 
+                    src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000&auto=format&fit=crop" 
                     alt="Concert Crowd"
                     fill
                     className="object-cover"
@@ -181,9 +181,12 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <button className="px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-full font-bold transition-all shadow-lg shadow-primary/25">
+              <Link 
+                href="/explore"
+                className="inline-block px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-full font-bold transition-all shadow-lg shadow-primary/25"
+              >
                 See More
-              </button>
+              </Link>
             </div>
           </div>
         </section>
