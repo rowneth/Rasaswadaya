@@ -1,10 +1,10 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../../node_modules/.prisma/client"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -14,27 +14,58 @@ model User {
   fullName  String
   city      String?
   interests String[] // Array of strings: ["Music", "Dance"]
+  role      Role     @default(USER)
   
   orders       Order[]
   eventActions EventAction[]
   store        Store?        // A user can own one store (optional)
+  artistProfile Artist?      // A user can be an artist
+  organizedEvents Event[]    // Events organized by this user
   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+  ORGANIZER
+  ARTIST
+}
+
+model Artist {
+  id        String   @id @default(uuid())
+  name      String
+  bio       String
+  photoUrl  String?
+  genre     String
+  
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?  @unique
+  
+  events    Event[]
 }
 
 model Event {
   id            String   @id @default(uuid())
   title         String
   description   String
-  city          String
-  venue         String
-  startTime     DateTime
-  endTime       DateTime
-  category      String
-  ticketLink    String   // External URL
+  imageUrl      String?
+  location      String?
+  city          String?
+  venue         String?
+  startTime     DateTime?
+  endTime       DateTime?
+  eventDate     DateTime? // Keeping this for compatibility with seed
+  capacity      Int?
+  category      String?
+  ticketLink    String?   // External URL
   organizerInfo Json?    // Simple JSON for name/contact
   
+  organizer     User?    @relation(fields: [organizerId], references: [id])
+  organizerId   String?
+  
+  artists       Artist[]
   actions       EventAction[]
   
   createdAt     DateTime @default(now())

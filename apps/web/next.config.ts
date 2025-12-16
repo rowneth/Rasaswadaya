@@ -21,6 +21,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'viewcy-heroku-production.s3.amazonaws.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.newswire.lk',
+      },
+      {
+        protocol: 'https',
+        hostname: 'groundviews.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lakpura.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'barefootceylon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+      },
     ],
   },
 };

@@ -1,81 +1,102 @@
-import Link from "next/link";
 import Image from "next/image";
-import { Search, Filter } from "lucide-react";
+import Link from "next/link";
+import { Music, Search, Filter } from "lucide-react";
+import { getArtists } from "../../lib/db";
 
-export default function ArtistsPage() {
+export default async function ArtistsPage() {
+  const artists = await getArtists(20);
+
+  // Group artists by genre
+  const genres = [...new Set(artists.map(a => a.genre).filter(Boolean))];
+
   return (
     <div className="space-y-8">
-      {/* Header & Filters */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Artists</h1>
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+            Artists & Performers
+          </h1>
+          <p className="text-slate-500 dark:text-zinc-400 mt-1">
+            Discover talented Sri Lankan artists, musicians, and performers
+          </p>
+        </div>
         
-        <div className="flex gap-3 w-full md:w-auto">
-          <div className="relative flex-1 md:w-64">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
-            <input 
-              type="text" 
-              placeholder="Search artists..." 
-              className="pl-9 pr-4 py-2 w-full bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-brand-500"
+        {/* Search */}
+        <div className="flex gap-3">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search artists..."
+              className="pl-10 pr-4 py-2 rounded-lg border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl text-sm font-medium hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors">
-            <Filter className="w-4 h-4" /> Filters
+          <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm font-medium hover:bg-slate-50 dark:hover:bg-zinc-700 transition-colors">
+            <Filter className="w-4 h-4" />
+            Filter
           </button>
         </div>
       </div>
 
-      {/* Category Pills */}
-      <div className="flex gap-2 overflow-x-auto pb-2">
-        {['All', 'Musicians', 'Dancers', 'Painters', 'Actors', 'Writers', 'Sculptors'].map((cat, i) => (
-          <button 
-            key={cat} 
-            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-              i === 0 
-                ? 'bg-brand-600 text-white' 
-                : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-800'
-            }`}
+      {/* Genre Filters */}
+      <div className="flex gap-3 overflow-x-auto pb-2">
+        <button className="flex-shrink-0 px-4 py-2 rounded-full bg-brand-600 text-white text-sm font-medium">
+          All Artists
+        </button>
+        {genres.map((genre) => (
+          <button
+            key={genre}
+            className="flex-shrink-0 px-4 py-2 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-zinc-700 transition-colors"
           >
-            {cat}
+            {genre}
           </button>
         ))}
       </div>
 
       {/* Artists Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { name: "Lakshan Sanjula", role: "Artist", image: "/lakshan_sanjula.jpeg", location: "Colombo" },
-          { name: "Kasun Kalhara", role: "Musician", image: "/kasun_kalhara.jpg", location: "Colombo" },
-          { name: "Upeka Chitrasena", role: "Dancer", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop", location: "Colombo" },
-          { name: "Artist Name 4", role: "Painter", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop", location: "Kandy" },
-          { name: "Artist Name 5", role: "Sculptor", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop", location: "Galle" },
-          { name: "Artist Name 6", role: "Writer", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop", location: "Jaffna" },
-          { name: "Artist Name 7", role: "Actor", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop", location: "Colombo" },
-          { name: "Artist Name 8", role: "Director", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2788&auto=format&fit=crop", location: "Kandy" }
-        ].map((artist, i) => (
-          <div key={i} className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 p-6 flex flex-col items-center text-center hover:border-brand-200 dark:hover:border-brand-900 transition-all hover:-translate-y-1">
-            <div className="w-24 h-24 bg-slate-200 dark:bg-zinc-800 rounded-full mb-4 overflow-hidden relative">
-              <Image 
-                src={artist.image}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {artists.map((artist) => (
+          <Link
+            key={artist.id}
+            href={`/artists/${artist.id}`}
+            className="group rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all text-center p-6"
+          >
+            <div className="w-24 h-24 mx-auto bg-slate-200 dark:bg-zinc-800 rounded-full mb-4 relative overflow-hidden ring-4 ring-slate-100 dark:ring-zinc-800 group-hover:ring-brand-100 dark:group-hover:ring-brand-900 transition-all">
+              <Image
+                src={artist.photoUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300"}
                 alt={artist.name}
                 fill
                 className="object-cover"
               />
             </div>
-            <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-1">{artist.name}</h3>
-            <p className="text-brand-600 text-sm font-medium mb-1">{artist.role}</p>
-            <p className="text-slate-500 text-xs mb-4">{artist.location}, Sri Lanka</p>
             
-            <div className="flex gap-2 w-full mt-auto">
-              <Link href={`/artists/artist-${i}`} className="flex-1 py-2 bg-slate-900 dark:bg-white text-white dark:text-black text-sm font-medium rounded-lg hover:bg-slate-800 dark:hover:bg-zinc-200 transition-colors">
-                View Profile
-              </Link>
-              <button className="p-2 border border-slate-200 dark:border-zinc-800 rounded-lg hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors text-slate-400 hover:text-brand-500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" x2="20" y1="8" y2="14"/><line x1="23" x2="17" y1="11" y2="11"/></svg>
-              </button>
+            <h3 className="font-bold text-lg mb-1 group-hover:text-brand-600 transition-colors">
+              {artist.name}
+            </h3>
+            
+            <div className="flex items-center justify-center gap-1 text-sm text-slate-500 dark:text-zinc-400 mb-3">
+              <Music className="w-4 h-4" />
+              <span>{artist.genre}</span>
             </div>
-          </div>
+            
+            <p className="text-xs text-slate-500 dark:text-zinc-400 line-clamp-2 mb-4">
+              {artist.bio}
+            </p>
+            
+            <button className="w-full text-sm font-medium bg-slate-100 dark:bg-zinc-800 text-slate-900 dark:text-white px-4 py-2 rounded-full hover:bg-brand-100 dark:hover:bg-brand-900 hover:text-brand-700 dark:hover:text-brand-300 transition-colors">
+              View Profile
+            </button>
+          </Link>
         ))}
       </div>
+
+      {artists.length === 0 && (
+        <div className="text-center py-16">
+          <Music className="w-12 h-12 mx-auto text-slate-300 dark:text-zinc-600 mb-4" />
+          <p className="text-slate-500 dark:text-zinc-400">No artists found</p>
+        </div>
+      )}
     </div>
   );
 }
