@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Calendar, Filter, Search } from "lucide-react";
 
 export default function EventsPage() {
@@ -73,7 +74,12 @@ export default function EventsPage() {
             <div key={i} className="group flex flex-col sm:flex-row gap-4 bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 hover:border-brand-200 dark:hover:border-brand-900 transition-all">
               {/* Thumbnail */}
               <div className="w-full sm:w-48 aspect-[4/3] bg-slate-200 dark:bg-zinc-800 rounded-xl flex-shrink-0 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-xs">Image</div>
+                <Image 
+                  src="https://images.squarespace-cdn.com/content/v1/57772f7ad2b857e1faad44d0/1648748699481-YH1C3PG4CWLA1BG9O6VT/Abhik.jpg"
+                  alt="Event"
+                  fill
+                  className="object-cover"
+                />
               </div>
               
               {/* Content */}

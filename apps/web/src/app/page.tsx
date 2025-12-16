@@ -30,11 +30,13 @@ export default function Home() {
             {[1, 2].map((i) => (
               <div key={i} className="group rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-brand-500/10 hover:-translate-y-0.5 transition-all">
                 <div className="aspect-[16/9] bg-slate-200 dark:bg-zinc-800 relative">
-                  {/* Placeholder Image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                    Event Image
-                  </div>
-                  <span className="absolute top-3 left-3 bg-white/90 dark:bg-black/90 backdrop-blur px-2 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                  <Image 
+                    src="https://lh5.googleusercontent.com/proxy/k7PlYmqTzYhGuxY4dfMZPYW-UuomGetxxRbNbR99livcJasWT8xEdCOtQZfd6lUAjFrgf-e0CUEJL7EH2eAWeB97W9_Iy0bpJ7whS4l3xNzKJ_wi3udS"
+                    alt="Event"
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute top-3 left-3 bg-white/90 dark:bg-black/90 backdrop-blur px-2 py-1 rounded-md text-xs font-bold uppercase tracking-wider z-10">
                     Drama
                   </span>
                 </div>
@@ -74,7 +76,14 @@ export default function Home() {
           <div className="flex gap-4 overflow-x-auto pb-2">
             {[1, 2, 3].map((i) => (
               <div key={i} className="min-w-[240px] bg-white dark:bg-zinc-900 rounded-xl p-3 border border-indigo-100 dark:border-indigo-900/50 shadow-sm">
-                <div className="h-24 bg-slate-100 dark:bg-zinc-800 rounded-lg mb-3"></div>
+                <div className="h-24 bg-slate-100 dark:bg-zinc-800 rounded-lg mb-3 relative overflow-hidden">
+                  <Image 
+                    src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=2938&auto=format&fit=crop"
+                    alt="Recommended"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <h4 className="font-semibold text-sm mb-1">Rhythm of the Dance</h4>
                 <p className="text-xs text-slate-500">Nelum Pokuna</p>
               </div>
@@ -93,7 +102,14 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <div key={i} className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 p-4 text-center hover:border-brand-200 transition-colors">
-                <div className="w-20 h-20 mx-auto bg-slate-200 dark:bg-zinc-800 rounded-full mb-3"></div>
+                <div className="w-20 h-20 mx-auto bg-slate-200 dark:bg-zinc-800 rounded-full mb-3 relative overflow-hidden">
+                  <Image 
+                    src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2940&auto=format&fit=crop"
+                    alt="Artist"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <h3 className="font-bold text-slate-900 dark:text-white">Kasun Kalhara</h3>
                 <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3">Musician • Colombo</p>
                 <button className="text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-900 dark:text-white px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors w-full">

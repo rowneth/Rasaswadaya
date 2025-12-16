@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Search, Filter } from "lucide-react";
 
 export default function ArtistsPage() {
@@ -44,7 +45,12 @@ export default function ArtistsPage() {
         {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
           <div key={i} className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 p-6 flex flex-col items-center text-center hover:border-brand-200 dark:hover:border-brand-900 transition-all hover:-translate-y-1">
             <div className="w-24 h-24 bg-slate-200 dark:bg-zinc-800 rounded-full mb-4 overflow-hidden relative">
-              {/* Avatar Placeholder */}
+              <Image 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop"
+                alt="Artist"
+                fill
+                className="object-cover"
+              />
             </div>
             <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-1">Artist Name {i}</h3>
             <p className="text-brand-600 text-sm font-medium mb-1">Classical Dancer</p>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Filter, Search, ShoppingCart } from "lucide-react";
 
 export default function MarketplacePage() {
@@ -64,8 +65,12 @@ export default function MarketplacePage() {
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="group bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-brand-500/10 transition-all">
               <div className="aspect-[4/3] bg-slate-100 dark:bg-zinc-800 relative">
-                {/* Product Image Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-xs">Product Image</div>
+                <Image 
+                  src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=2940&auto=format&fit=crop"
+                  alt="Product"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-start mb-2">
