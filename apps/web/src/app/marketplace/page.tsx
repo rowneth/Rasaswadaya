@@ -62,7 +62,7 @@ export default function MarketplacePage() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="group bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-red-500/10 transition-all">
+            <div key={i} className="group bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-brand-500/10 transition-all">
               <div className="aspect-[4/3] bg-slate-100 dark:bg-zinc-800 relative">
                 {/* Product Image Placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-xs">Product Image</div>

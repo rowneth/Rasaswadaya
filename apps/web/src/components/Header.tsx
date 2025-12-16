@@ -40,7 +40,7 @@ export function Header() {
       </div>
 
       {/* Tier 2: Primary Nav */}
-      <nav className="w-full bg-[#D00000] text-white shadow-lg shadow-brand-500/20 hidden md:block">
+      <nav className="w-full bg-brand-600 text-white shadow-lg shadow-brand-500/20 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-8 font-ui font-medium text-sm">
           <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
           <Link href="/events" className="hover:text-white/80 transition-colors">Events</Link>

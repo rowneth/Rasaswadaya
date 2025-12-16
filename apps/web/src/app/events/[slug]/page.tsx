@@ -89,7 +89,7 @@ export default function EventDetailsPage({ params }: { params: { slug: string } 
             </div>
 
             <div className="space-y-3">
-              <button className="w-full bg-[#D00000] text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
+              <button className="w-full bg-brand-600 text-white py-3 rounded-xl font-bold hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/20">
                 Get Tickets
               </button>
               <div className="grid grid-cols-2 gap-3">

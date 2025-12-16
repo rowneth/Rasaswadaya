@@ -9,7 +9,7 @@ export default function Home() {
       <section className="lg:col-span-8 space-y-8">
         
         {/* 1) Hero Section */}
-        <div className="rounded-3xl bg-white dark:bg-zinc-900 shadow-lg shadow-red-500/10 p-6 lg:p-8 relative overflow-hidden">
+        <div className="rounded-3xl bg-white dark:bg-zinc-900 shadow-lg shadow-brand-500/10 p-6 lg:p-8 relative overflow-hidden">
           <div className="relative z-10 max-w-lg">
             <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Explore Sri Lankan Arts Near You
@@ -18,7 +18,7 @@ export default function Home() {
               Events, artists, and cultural products, curated for <span className="font-semibold text-brand-600">Colombo</span>.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/events" className="bg-[#D00000] text-white px-6 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
+              <Link href="/events" className="bg-brand-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/20">
                 See Events Near Me
               </Link>
               <Link href="/marketplace" className="bg-slate-100 dark:bg-zinc-800 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-medium hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors">
@@ -27,7 +27,7 @@ export default function Home() {
             </div>
           </div>
           {/* Decorative background element */}
-          <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-red-50 to-transparent dark:from-red-900/20 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-brand-50 to-transparent dark:from-brand-900/20 pointer-events-none" />
         </div>
 
         {/* 2) Events Near You */}
@@ -44,7 +44,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[1, 2].map((i) => (
-              <div key={i} className="group rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-red-500/10 hover:-translate-y-0.5 transition-all">
+              <div key={i} className="group rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-brand-500/10 hover:-translate-y-0.5 transition-all">
                 <div className="aspect-[16/9] bg-slate-200 dark:bg-zinc-800 relative">
                   {/* Placeholder Image */}
                   <div className="absolute inset-0 flex items-center justify-center text-slate-400">

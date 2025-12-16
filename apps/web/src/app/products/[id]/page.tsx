@@ -52,7 +52,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
           </div>
 
           <div className="flex gap-3">
-            <button className="flex-1 bg-[#D00000] text-white py-3.5 rounded-xl font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20 flex items-center justify-center gap-2">
+            <button className="flex-1 bg-brand-600 text-white py-3.5 rounded-xl font-bold hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
               <ShoppingCart className="w-5 h-5" /> Add to Cart
             </button>
             <button className="p-3.5 border border-slate-200 dark:border-zinc-800 rounded-xl hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors">
