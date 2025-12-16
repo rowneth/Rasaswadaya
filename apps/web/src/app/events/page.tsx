@@ -39,7 +39,7 @@ export default async function EventsPage() {
       {/* Events Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event) => {
-          const eventDate = new Date(event.eventDate);
+          const eventDate = event.eventDate ? new Date(event.eventDate) : new Date();
           const isPast = eventDate < new Date();
           
           return (

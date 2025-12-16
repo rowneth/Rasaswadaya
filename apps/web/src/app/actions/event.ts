@@ -4,10 +4,10 @@ import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { redirect } from "next/navigation";
 
-export async function createEvent(prevState: any, formData: FormData) {
+export async function createEvent(formData: FormData) {
   const session = await getSession();
   if (!session || session.user.role !== "ORGANIZER") {
-    return { error: "Unauthorized" };
+    throw new Error("Unauthorized");
   }
 
   const title = formData.get("title") as string;
@@ -17,7 +17,7 @@ export async function createEvent(prevState: any, formData: FormData) {
   const imageUrl = formData.get("imageUrl") as string;
 
   if (!title || !description || !dateStr || !location) {
-    return { error: "Missing required fields" };
+    throw new Error("Missing required fields");
   }
 
   try {
@@ -40,7 +40,7 @@ export async function createEvent(prevState: any, formData: FormData) {
     });
   } catch (error) {
     console.error("Create event error:", error);
-    return { error: "Failed to create event" };
+    throw new Error("Failed to create event");
   }
 
   redirect("/dashboard/organizer");

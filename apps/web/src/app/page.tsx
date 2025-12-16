@@ -154,7 +154,7 @@ export default async function Home() {
                   </h3>
                   <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-zinc-400 mb-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{new Date(event.eventDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    <span>{event.eventDate ? new Date(event.eventDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'TBD'}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-zinc-400 mb-4">
                     <MapPin className="w-4 h-4" />
@@ -194,7 +194,7 @@ export default async function Home() {
               >
                 <div className="aspect-square bg-slate-100 dark:bg-zinc-800 rounded-lg mb-3 relative overflow-hidden">
                   <Image 
-                    src={product.imageUrl || "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500"}
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500"
                     alt={product.name}
                     fill
                     className="object-cover"
@@ -253,7 +253,7 @@ export default async function Home() {
           </h3>
           <div className="space-y-4">
             {events.slice(0, 3).map((event) => {
-              const eventDate = new Date(event.eventDate);
+              const eventDate = event.eventDate ? new Date(event.eventDate) : new Date();
               return (
                 <div key={event.id} className="flex gap-3 items-start">
                   <div className="w-12 h-12 bg-slate-100 dark:bg-zinc-800 rounded-lg flex-shrink-0 flex flex-col items-center justify-center text-xs font-bold text-slate-500">
@@ -299,18 +299,9 @@ export default async function Home() {
             {stores.map((store) => (
               <div key={store.id} className="flex items-center gap-3 p-2 hover:bg-slate-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
                 <div className="w-10 h-10 bg-slate-200 dark:bg-zinc-700 rounded-full relative overflow-hidden">
-                  {store.logoUrl && (
-                    <Image 
-                      src={store.logoUrl}
-                      alt={store.name}
-                      fill
-                      className="object-cover"
-                    />
-                  )}
                 </div>
                 <div>
                   <h4 className="font-medium text-sm">{store.name}</h4>
-                  <p className="text-xs text-slate-500 line-clamp-1">{store.description}</p>
                 </div>
               </div>
             ))}

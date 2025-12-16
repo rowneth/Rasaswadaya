@@ -1,30 +1,49 @@
 
-
 > web@0.1.0 build /Users/rowneth/Rasaswadaya/apps/web
 > next build
 
- [33m[1m⚠[22m[39m Warning: Next.js inferred your workspace root, but it may not be correct.
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
  We detected multiple lockfiles and selected the directory of /Users/rowneth/package-lock.json as the root directory.
  To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
    See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
  Detected additional lockfiles: 
-   * /Users/rowneth/Rasaswadaya/apps/web/package-lock.json
    * /Users/rowneth/Rasaswadaya/pnpm-lock.yaml
 
-   [1m[38;2;173;127;168m▲ Next.js 16.0.10[39m[22m (Turbopack)
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Environments: .env
 
- [37m[1m [22m[39m Creating an optimized production build ...
- [32m[1m✓[22m[39m Compiled successfully in 1778.5ms
-[?25l [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[?25h[?25l [37m[1m [22m[39m Finished TypeScript in 765.5ms  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Finished TypeScript in 765.5ms     [32m[1m✓[22m[39m Finished TypeScript in 765.5ms 
-[?25l [37m[1m [22m[39m Collecting page data using 9 workers  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Collecting page data using 9 workers in 147.0ms     [32m[1m✓[22m[39m Collecting page data using 9 workers in 147.0ms 
-[?25l [37m[1m [22m[39m Generating static pages using 9 workers (0/4)  [36m[    ][39m[2K[1G[?25h [32m[1m✓[22m[39m Generating static pages using 9 workers (4/4) in 178.8ms
-[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Finalizing page optimization in 8.5ms     [32m[1m✓[22m[39m Finalizing page optimization in 8.5ms 
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.2s
+   Running TypeScript ...
+   Collecting page data using 9 workers ...
+   Generating static pages using 9 workers (0/17) ...
+   Generating static pages using 9 workers (4/17) 
+   Generating static pages using 9 workers (8/17) 
+   Generating static pages using 9 workers (12/17) 
+ ✓ Generating static pages using 9 workers (17/17) in 1436.8ms
+   Finalizing page optimization ...
 
-[4mRoute (app)[24m
+Route (app)
 ┌ ○ /
-└ ○ /_not-found
+├ ○ /_not-found
+├ ○ /artists
+├ ƒ /artists/[slug]
+├ ○ /auth/login
+├ ○ /auth/register
+├ ƒ /dashboard
+├ ƒ /dashboard/artist
+├ ƒ /dashboard/organizer
+├ ƒ /dashboard/organizer/create
+├ ○ /events
+├ ƒ /events/[slug]
+├ ○ /login
+├ ○ /marketplace
+├ ƒ /products/[id]
+├ ○ /profile
+├ ○ /signup
+└ ○ /test-db
 
 
-○  (Static)  prerendered as static content
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
 
-[?25h

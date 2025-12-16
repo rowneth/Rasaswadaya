@@ -62,21 +62,11 @@ export default async function MarketplacePage() {
           >
             <div className="aspect-square bg-slate-100 dark:bg-zinc-800 relative">
               <Image
-                src={product.imageUrl || "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500"}
+                src={"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500"}
                 alt={product.name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              {product.stock < 5 && product.stock > 0 && (
-                <span className="absolute top-2 right-2 bg-amber-500 text-white px-2 py-0.5 rounded text-xs font-medium">
-                  Only {product.stock} left
-                </span>
-              )}
-              {product.stock === 0 && (
-                <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-0.5 rounded text-xs font-medium">
-                  Sold Out
-                </span>
-              )}
             </div>
             
             <div className="p-4">

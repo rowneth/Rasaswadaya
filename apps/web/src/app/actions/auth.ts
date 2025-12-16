@@ -6,14 +6,14 @@ import { encrypt } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import bcrypt from "bcryptjs";
 
-export async function signup(prevState: any, formData: FormData) {
+export async function signup(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const fullName = formData.get("fullName") as string;
   const role = formData.get("role") as string;
 
   if (!email || !password || !fullName) {
-    return { error: "Missing required fields" };
+    throw new Error("Missing required fields");
   }
 
   // Check if user exists
@@ -22,7 +22,7 @@ export async function signup(prevState: any, formData: FormData) {
   });
 
   if (existingUser) {
-    return { error: "User already exists" };
+    throw new Error("User already exists");
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -46,7 +46,7 @@ export async function signup(prevState: any, formData: FormData) {
   redirect("/dashboard");
 }
 
-export async function signin(prevState: any, formData: FormData) {
+export async function signin(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
@@ -55,13 +55,13 @@ export async function signin(prevState: any, formData: FormData) {
   });
 
   if (!user) {
-    return { error: "Invalid credentials" };
+    throw new Error("Invalid credentials");
   }
 
   const isValid = await bcrypt.compare(password, user.password);
 
   if (!isValid) {
-    return { error: "Invalid credentials" };
+    throw new Error("Invalid credentials");
   }
 
   // Create session

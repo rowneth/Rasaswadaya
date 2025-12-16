@@ -10,8 +10,8 @@ export default function Page() {
     
     try {
         // Insert the comment from the form into the Postgres database
-        await sql('CREATE TABLE IF NOT EXISTS comments (comment TEXT)');
-        await sql('INSERT INTO comments (comment) VALUES ($1)', [comment]);
+        await sql`CREATE TABLE IF NOT EXISTS comments (comment TEXT)`;
+        await sql`INSERT INTO comments (comment) VALUES (${comment})`;
         console.log("Comment added successfully");
     } catch (e) {
         console.error("Error adding comment:", e);
