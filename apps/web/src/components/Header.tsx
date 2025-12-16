@@ -49,7 +49,6 @@ export function Header() {
       {/* Tier 2: Primary Nav */}
       <nav className="w-full bg-brand-700 text-white shadow-lg shadow-brand-900/20 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-8 font-ui font-medium text-sm">
-          <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
           <Link href="/events" className="hover:text-white/80 transition-colors">Events</Link>
           <Link href="/artists" className="hover:text-white/80 transition-colors">Artists</Link>
           <Link href="/marketplace" className="hover:text-white/80 transition-colors">Marketplace</Link>
