@@ -1,6 +1,7 @@
 
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
+import type { Event } from "@prisma/client";
 import Link from "next/link";
 import { Plus, Calendar } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -43,7 +44,7 @@ export default async function OrganizerDashboard() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event) => (
+          {events.map((event: Event) => (
             <div key={event.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 overflow-hidden">
               <div className="h-40 bg-slate-100 dark:bg-zinc-800 relative">
                 {/* Image placeholder or actual image */}
