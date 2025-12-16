@@ -11,7 +11,7 @@ const SLIDES = [
     date: "Dec 18, 2025",
     time: "6:30 PM",
     venue: "Lionel Wendt, Colombo 7",
-    image: "https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=2874&auto=format&fit=crop", // Placeholder
+    image: "https://lh5.googleusercontent.com/proxy/k7PlYmqTzYhGuxY4dfMZPYW-UuomGetxxRbNbR99livcJasWT8xEdCOtQZfd6lUAjFrgf-e0CUEJL7EH2eAWeB97W9_Iy0bpJ7whS4l3xNzKJ_wi3udS",
     link: "/events/sinha-bahu-1",
     category: "Drama"
   },
