@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
@@ -7,7 +8,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-lg">Rasaswadaya</h3>
+            <Link href="/" className="flex items-center gap-2">
+              <Image 
+                src="/logo.png" 
+                alt="Rasaswadaya" 
+                width={32} 
+                height={32} 
+                className="w-8 h-8 brightness-0 invert opacity-80"
+              />
+              <span className="text-white font-bold text-lg">Rasaswadaya.lk</span>
+            </Link>
             <p className="text-sm leading-relaxed">
               The premier cultural hub for Sri Lankan arts, events, and creative marketplace. Discover the rhythm of the island.
             </p>

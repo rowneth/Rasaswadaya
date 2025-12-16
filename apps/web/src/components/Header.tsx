@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Search, Bell, User, Menu, MapPin } from "lucide-react";
 
 export function Header() {
@@ -8,8 +9,15 @@ export function Header() {
       <div className="w-full bg-brand-600 border-b border-brand-500/20 py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm font-ui">
           <div className="flex items-center gap-4">
-            <Link href="/" className="font-bold text-lg tracking-tight text-white">
-              Rasaswadaya.lk
+            <Link href="/" className="flex items-center gap-2">
+              <Image 
+                src="/logo.png" 
+                alt="Rasaswadaya" 
+                width={32} 
+                height={32} 
+                className="w-8 h-8 brightness-0 invert"
+              />
+              <span className="font-bold text-lg tracking-tight text-white">Rasaswadaya.lk</span>
             </Link>
             <div className="hidden md:flex items-center gap-2 text-white/90 bg-brand-500/30 px-3 py-1 rounded-full">
               <MapPin className="w-3 h-3" />
