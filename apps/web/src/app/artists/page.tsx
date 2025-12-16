@@ -7,7 +7,7 @@ export default async function ArtistsPage() {
   const artists = await getArtists(20);
 
   // Group artists by genre
-  const genres = [...new Set(artists.map(a => a.genre).filter(Boolean))];
+  const genres = [...new Set(artists.map((a: any) => a.genre).filter(Boolean))];
 
   return (
     <div className="space-y-8">
