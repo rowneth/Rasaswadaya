@@ -56,7 +56,7 @@ export default async function ArtistsPage() {
 
       {/* Artists Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {artists.map((artist) => (
+        {artists.map((artist: { id: string; name: string; bio: string; photoUrl: string | null; genre: string; userId: string | null }) => (
           <Link
             key={artist.id}
             href={`/artists/${artist.id}`}
