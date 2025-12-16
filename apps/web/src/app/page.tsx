@@ -1,65 +1,191 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Sparkles, MapPin, Calendar, ArrowRight, Bell } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {/* Left: Main content (8 cols) */}
+      <section className="lg:col-span-8 space-y-8">
+        
+        {/* 1) Hero Section */}
+        <div className="rounded-3xl bg-white dark:bg-zinc-900 shadow-lg shadow-red-500/10 p-6 lg:p-8 relative overflow-hidden">
+          <div className="relative z-10 max-w-lg">
+            <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+              Explore Sri Lankan Arts Near You
+            </h1>
+            <p className="text-slate-600 dark:text-zinc-400 mb-8 text-lg">
+              Events, artists, and cultural products, curated for <span className="font-semibold text-brand-600">Colombo</span>.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/events" className="bg-[#D00000] text-white px-6 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20">
+                See Events Near Me
+              </Link>
+              <Link href="/marketplace" className="bg-slate-100 dark:bg-zinc-800 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-medium hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors">
+                Browse Marketplace
+              </Link>
+            </div>
+          </div>
+          {/* Decorative background element */}
+          <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-red-50 to-transparent dark:from-red-900/20 pointer-events-none" />
+        </div>
+
+        {/* 2) Events Near You */}
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              Events in Colombo
+            </h2>
+            <div className="flex gap-2">
+              <span className="px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-medium border border-brand-100">Today</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 text-xs font-medium border border-slate-200 dark:border-zinc-700">This Weekend</span>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[1, 2].map((i) => (
+              <div key={i} className="group rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-red-500/10 hover:-translate-y-0.5 transition-all">
+                <div className="aspect-[16/9] bg-slate-200 dark:bg-zinc-800 relative">
+                  {/* Placeholder Image */}
+                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
+                    Event Image
+                  </div>
+                  <span className="absolute top-3 left-3 bg-white/90 dark:bg-black/90 backdrop-blur px-2 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                    Drama
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg mb-1 group-hover:text-brand-600 transition-colors">Sinha Bahu</h3>
+                  <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-zinc-400 mb-1">
+                    <Calendar className="w-4 h-4" />
+                    <span>Dec 18 • 6:30 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-zinc-400 mb-4">
+                    <MapPin className="w-4 h-4" />
+                    <span>Lionel Wendt, Colombo 7</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-zinc-800">
+                    <Link href={`/events/sinha-bahu-${i}`} className="text-sm font-medium text-slate-900 dark:text-white hover:underline">
+                      View Event
+                    </Link>
+                    <a href="#" className="text-xs font-medium text-brand-600 hover:text-brand-700">
+                      Get Tickets →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3) Recommended For You (AI) */}
+        <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-100 dark:border-indigo-900/50 p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <h2 className="text-lg font-bold text-indigo-900 dark:text-indigo-100">Recommended For You</h2>
+          </div>
+          <p className="text-sm text-indigo-700 dark:text-indigo-300 mb-4">
+            Based on your interest in <span className="font-semibold">Classical Music</span> and <span className="font-semibold">Kandy</span>.
           </p>
+          <div className="flex gap-4 overflow-x-auto pb-2">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="min-w-[240px] bg-white dark:bg-zinc-900 rounded-xl p-3 border border-indigo-100 dark:border-indigo-900/50 shadow-sm">
+                <div className="h-24 bg-slate-100 dark:bg-zinc-800 rounded-lg mb-3"></div>
+                <h4 className="font-semibold text-sm mb-1">Rhythm of the Dance</h4>
+                <p className="text-xs text-slate-500">Nelum Pokuna</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* 4) Featured Artists */}
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">Featured Artists</h2>
+            <Link href="/artists" className="text-sm font-medium text-brand-600 hover:text-brand-700 flex items-center gap-1">
+              View All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 p-4 text-center hover:border-brand-200 transition-colors">
+                <div className="w-20 h-20 mx-auto bg-slate-200 dark:bg-zinc-800 rounded-full mb-3"></div>
+                <h3 className="font-bold text-slate-900 dark:text-white">Kasun Kalhara</h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3">Musician • Colombo</p>
+                <button className="text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-900 dark:text-white px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors w-full">
+                  View Profile
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+
+      </section>
+
+      {/* Right: Sidebar (4 cols) */}
+      <aside className="lg:col-span-4 space-y-8">
+        
+        {/* My Reminders */}
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
+          <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+            <Bell className="w-5 h-5 text-brand-600" />
+            My Reminders
+          </h3>
+          <div className="space-y-4">
+            {[1, 2].map((i) => (
+              <div key={i} className="flex gap-3 items-start">
+                <div className="w-12 h-12 bg-slate-100 dark:bg-zinc-800 rounded-lg flex-shrink-0 flex flex-col items-center justify-center text-xs font-bold text-slate-500">
+                  <span>DEC</span>
+                  <span className="text-lg text-slate-900 dark:text-white">20</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-sm line-clamp-1">Chitrasena Vajira Dance Festival</h4>
+                  <p className="text-xs text-slate-500">Bishop's College</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="w-full mt-4 text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
+            View all reminders
+          </button>
+        </div>
+
+        {/* Trending */}
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
+          <h3 className="font-bold text-lg mb-4">Trending in Sri Lanka</h3>
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex items-center gap-3 group cursor-pointer">
+                <span className="text-2xl font-bold text-slate-200 dark:text-zinc-800 group-hover:text-brand-200 transition-colors">0{i}</span>
+                <div>
+                  <h4 className="font-medium text-sm group-hover:text-brand-600 transition-colors">Kandy Esala Perahera</h4>
+                  <p className="text-xs text-slate-500">Cultural Event</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Marketplace Highlights */}
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-bold text-lg">Top Stores</h3>
+            <Link href="/marketplace" className="text-xs text-brand-600 hover:underline">Browse</Link>
+          </div>
+          <div className="space-y-3">
+            {[1, 2].map((i) => (
+              <div key={i} className="flex items-center gap-3 p-2 hover:bg-slate-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
+                <div className="w-10 h-10 bg-slate-200 dark:bg-zinc-700 rounded-full"></div>
+                <div>
+                  <h4 className="font-medium text-sm">Sarasavi Bookshop</h4>
+                  <p className="text-xs text-slate-500">Books & Music</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </aside>
     </div>
   );
 }
