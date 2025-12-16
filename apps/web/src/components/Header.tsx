@@ -17,7 +17,7 @@ export function Header() {
                 height={32} 
                 className="w-8 h-8 brightness-0 invert"
               />
-              <span className="font-bold text-lg tracking-tight text-white">Rasaswadaya.lk</span>
+              <span className="font-bold text-2xl tracking-tight text-white font-sinhala">රසාස්වාදය</span>
             </Link>
           </div>
           

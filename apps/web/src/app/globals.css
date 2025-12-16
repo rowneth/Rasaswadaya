@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-sinhala: var(--font-abhaya);
 
   --color-brand-50: #F5F3FF;
   --color-brand-100: #EDE9FE;

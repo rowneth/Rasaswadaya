@@ -16,7 +16,7 @@ export function Footer() {
                 height={32} 
                 className="w-8 h-8 brightness-0 invert opacity-80"
               />
-              <span className="text-white font-bold text-lg">Rasaswadaya.lk</span>
+              <span className="text-white font-bold text-2xl font-sinhala">රසාස්වාදය</span>
             </Link>
             <p className="text-sm leading-relaxed">
               The premier cultural hub for Sri Lankan arts, events, and creative marketplace. Discover the rhythm of the island.
@@ -59,7 +59,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-brand-200/60">© 2025 Rasaswadaya. All rights reserved.</p>
+          <p className="text-xs text-brand-200/60">© 2025 <span className="font-sinhala">රසාස්වාදය</span>. All rights reserved.</p>
           <div className="flex gap-4 text-brand-200/80">
             <a href="#" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
             <a href="#" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
