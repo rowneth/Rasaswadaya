@@ -5,19 +5,19 @@ import Link from 'next/link';
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-background">
-      <div className="w-full max-w-md bg-card rounded-3xl p-8 shadow-2xl border border-white/5 text-center">
+      <div className="w-full max-w-md bg-white dark:bg-card rounded-3xl p-8 shadow-2xl border border-gray-200 dark:border-white/5 text-center">
         
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Login</h1>
-          <p className="text-gray-400">Login with your email account</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Login</h1>
+          <p className="text-gray-500 dark:text-gray-400">Login with your email account</p>
         </div>
 
         <form className="space-y-4">
           <div className="space-y-2 text-left">
-            <label className="text-sm text-gray-400 ml-1">Email address</label>
+            <label className="text-sm text-gray-500 dark:text-gray-400 ml-1">Email address</label>
             <input 
               type="email" 
-              className="w-full bg-input-bg border border-input-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+              className="w-full bg-gray-50 dark:bg-[#2c2c2e] border border-gray-200 dark:border-[#3a3a3c] rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
               placeholder="name@example.com"
             />
           </div>
@@ -37,7 +37,7 @@ export default function LoginPage() {
           </Link>
 
           <div className="pt-4">
-            <button type="button" className="text-white hover:text-primary transition-colors font-medium">
+            <button type="button" className="text-foreground hover:text-primary transition-colors font-medium">
               Sign in manually
             </button>
           </div>

@@ -1,13 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #02020b; /* Very dark blue/black */
-  --foreground: #ffffff;
-  --card: #11112b; /* Dark purple/blue for cards */
-  --primary: #6366f1; /* Indigo/Purple */
-  --primary-hover: #4f46e5;
-  --input-bg: #1e1e3f;
-  --input-border: #2e2e5f;
+  --background: #ffffff;
+  --foreground: #0f0f11;
+  --card: #fbfbfe; /* Very light purple tint */
+  --primary: #7c3aed; /* Vivid Purple */
+  --primary-hover: #6d28d9;
+  --input-bg: #f3f4f6;
+  --input-border: #e5e7eb;
+}
+
+.dark {
+  --background: #000000; /* Pure Black */
+  --foreground: #f5f5f7; /* Apple Off-White */
+  --card: #1c1c1e; /* Apple Dark Gray */
+  --primary: #a78bfa; /* Light Purple */
+  --primary-hover: #8b5cf6;
+  --input-bg: #2c2c2e; /* Apple Secondary System Fill */
+  --input-border: #3a3a3c;
 }
 
 @theme inline {
