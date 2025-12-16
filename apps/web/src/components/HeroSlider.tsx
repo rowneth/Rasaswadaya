@@ -31,7 +31,7 @@ const SLIDES = [
     date: "Dec 22, 2025",
     time: "6:00 PM",
     venue: "Bishop's College Auditorium",
-    image: "https://viewcy-heroku-production.s3.amazonaws.com/courses/featured_images/000/011/938/original/Deepshankar.jpeg?1710723270",
+    image: "https://images.squarespace-cdn.com/content/v1/57772f7ad2b857e1faad44d0/1648748699481-YH1C3PG4CWLA1BG9O6VT/Abhik.jpg",
     link: "/events/sitar-recital-3",
     category: "Music"
   }
