@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Sparkles, MapPin, Calendar, ArrowRight, Bell, ShoppingBag, Heart, Zap, Music, Theater, Palette } from "lucide-react";
 import { HeroSlider } from "../components/HeroSlider";
 import { getEvents, getArtists, getStores, getProducts, getTrendingEvents } from "../lib/db";
+import type { Event, Artist, Store } from "@prisma/client";
 
 export default async function Home() {
   // Fetch real data from the database
@@ -131,7 +132,7 @@ export default async function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            {events.slice(0, 3).map((event) => (
+            {events.slice(0, 3).map((event: Event) => (
               <Link
                 key={event.id}
                 href={`/events/${event.id}`}
@@ -186,7 +187,7 @@ export default async function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {products.slice(0, 4).map((product) => (
+            {products.slice(0, 4).map((product: { id: string; name: string; description: string; price: number; storeId: string; storeName: string; store?: { name: string; id: string; ownerId: string } }) => (
               <Link
                 key={product.id}
                 href={`/products/${product.id}`}
@@ -217,7 +218,7 @@ export default async function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {artists.map((artist) => (
+            {artists.map((artist: Artist) => (
               <div key={artist.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 p-4 text-center hover:border-brand-200 transition-colors">
                 <div className="w-20 h-20 mx-auto bg-slate-200 dark:bg-zinc-800 rounded-full mb-3 relative overflow-hidden">
                   <Image 
@@ -252,7 +253,7 @@ export default async function Home() {
             Coming Soon
           </h3>
           <div className="space-y-4">
-            {events.slice(0, 3).map((event) => {
+            {events.slice(0, 3).map((event: Event) => {
               const eventDate = event.eventDate ? new Date(event.eventDate) : new Date();
               return (
                 <div key={event.id} className="flex gap-3 items-start">
@@ -277,7 +278,7 @@ export default async function Home() {
         <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 p-6">
           <h3 className="font-bold text-lg mb-4">Trending</h3>
           <div className="space-y-4">
-            {trendingEvents.map((event, i) => (
+            {trendingEvents.map((event: Event, i: number) => (
               <div key={event.id} className="flex items-center gap-3 group cursor-pointer">
                 <span className="text-2xl font-bold text-slate-200 dark:text-zinc-800 group-hover:text-brand-200 transition-colors">0{i + 1}</span>
                 <div>
@@ -296,7 +297,7 @@ export default async function Home() {
             <Link href="/marketplace" className="text-xs text-brand-600 hover:underline">Browse</Link>
           </div>
           <div className="space-y-3">
-            {stores.map((store) => (
+            {stores.map((store: Store) => (
               <div key={store.id} className="flex items-center gap-3 p-2 hover:bg-slate-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
                 <div className="w-10 h-10 bg-slate-200 dark:bg-zinc-700 rounded-full relative overflow-hidden">
                 </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShoppingBag, Filter, Search, Star } from "lucide-react";
 import { getProducts, getCategories } from "../../lib/db";
+// import type { Product } from "@prisma/client";
 import { AddToCartButton } from "../../components/AddToCartButton";
 
 export default async function MarketplacePage() {
@@ -41,7 +42,7 @@ export default async function MarketplacePage() {
         <button className="flex-shrink-0 px-4 py-2 rounded-full bg-brand-600 text-white text-sm font-medium">
           All
         </button>
-        {categories.map((cat) => (
+        {categories.map((cat: { id: string; name: string; iconUrl?: string }) => (
           <button
             key={cat.id}
             className="flex-shrink-0 px-4 py-2 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-zinc-700 transition-colors"
@@ -54,7 +55,7 @@ export default async function MarketplacePage() {
 
       {/* Products Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
+        {products.map((product: { id: string; name: string; description: string; price: number; storeId: string; storeName: string; store?: { name: string; id: string; ownerId: string } }) => (
           <Link
             key={product.id}
             href={`/products/${product.id}`}
