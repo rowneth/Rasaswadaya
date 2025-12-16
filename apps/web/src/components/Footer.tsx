@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-zinc-400 py-12 border-t border-zinc-800">
+    <footer className="bg-brand-950 text-brand-100/80 py-12 border-t border-brand-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-4">
@@ -49,18 +49,18 @@ export function Footer() {
               <input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="bg-zinc-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-2 focus:ring-brand-500"
+                className="bg-brand-900/50 text-white placeholder:text-brand-300/50 border border-brand-800 rounded-lg px-3 py-2 text-sm w-full focus:ring-2 focus:ring-brand-500 focus:outline-none"
               />
-              <button className="bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-700 transition-colors">
+              <button className="bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-500 transition-colors">
                 Subscribe
               </button>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs">© 2025 Rasaswadaya. All rights reserved.</p>
-          <div className="flex gap-4">
+        <div className="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-brand-200/60">© 2025 Rasaswadaya. All rights reserved.</p>
+          <div className="flex gap-4 text-brand-200/80">
             <a href="#" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
             <a href="#" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
             <a href="#" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
