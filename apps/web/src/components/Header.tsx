@@ -5,7 +5,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Tier 1: Utility Bar */}
-      <div className="w-full bg-brand-600 dark:bg-brand-950 backdrop-blur-md border-b border-brand-500/20 dark:border-brand-900 py-2">
+      <div className="w-full bg-brand-600 border-b border-brand-500/20 py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm font-ui">
           <div className="flex items-center gap-4">
             <Link href="/" className="font-bold text-lg tracking-tight text-white">
