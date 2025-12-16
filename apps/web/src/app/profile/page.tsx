@@ -61,7 +61,7 @@ export default function ProfilePage() {
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-zinc-800/50 rounded-xl">
                 <div>
-                  <h4 className="font-medium text-sm">Sinha Bahu</h4>
+                  <h4 className="font-medium text-sm font-sinhala">සිංහබාහු</h4>
                   <p className="text-xs text-slate-500">Dec 18 • 6:30 PM</p>
                 </div>
                 <button className="text-xs text-red-500 hover:underline">Remove</button>

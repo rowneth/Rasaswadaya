@@ -39,7 +39,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1 group-hover:text-brand-600 transition-colors">Sinha Bahu</h3>
+                  <h3 className="font-bold text-lg mb-1 group-hover:text-brand-600 transition-colors font-sinhala">සිංහබාහු</h3>
                   <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-zinc-400 mb-1">
                     <Calendar className="w-4 h-4" />
                     <span>Dec 18 • 6:30 PM</span>

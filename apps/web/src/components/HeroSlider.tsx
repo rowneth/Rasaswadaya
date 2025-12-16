@@ -7,7 +7,7 @@ import { Calendar, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 const SLIDES = [
   {
     id: 1,
-    title: "Sinha Bahu - A Legendary Drama",
+    title: "සිංහබාහු",
     date: "Dec 18, 2025",
     time: "6:30 PM",
     venue: "Lionel Wendt, Colombo 7",
@@ -73,7 +73,7 @@ export function HeroSlider() {
             <span className="inline-block px-3 py-1 rounded-full bg-brand-600 text-xs font-bold uppercase tracking-wider mb-4">
               {slide.category}
             </span>
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight max-w-3xl">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight max-w-3xl font-sinhala">
               {slide.title}
             </h2>
             
