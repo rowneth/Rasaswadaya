@@ -100,18 +100,22 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
+            {[
+              { name: "Lakshan Sanjula", role: "Artist", image: "/lakshan_sanjula.jpeg" },
+              { name: "Kasun Kalhara", role: "Musician", image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2940&auto=format&fit=crop" },
+              { name: "Upeka Chitrasena", role: "Dancer", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" }
+            ].map((artist, i) => (
               <div key={i} className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 p-4 text-center hover:border-brand-200 transition-colors">
                 <div className="w-20 h-20 mx-auto bg-slate-200 dark:bg-zinc-800 rounded-full mb-3 relative overflow-hidden">
                   <Image 
-                    src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2940&auto=format&fit=crop"
-                    alt="Artist"
+                    src={artist.image}
+                    alt={artist.name}
                     fill
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-bold text-slate-900 dark:text-white">Kasun Kalhara</h3>
-                <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3">Musician • Colombo</p>
+                <h3 className="font-bold text-slate-900 dark:text-white">{artist.name}</h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3">{artist.role} • Colombo</p>
                 <button className="text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-900 dark:text-white px-4 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors w-full">
                   View Profile
                 </button>
