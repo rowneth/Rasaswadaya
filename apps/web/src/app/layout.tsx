@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light"> {/* Default to light, toggle class for dark */}
+    <html lang="en" className="light">
       <body className={`${inter.variable} ${outfit.variable} ${ibmPlex.variable} font-sans bg-slate-50 dark:bg-zinc-900 text-slate-600 dark:text-zinc-400`}>
         
         {/* Tier 1: Utility Bar */}
