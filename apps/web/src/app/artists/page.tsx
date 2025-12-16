@@ -44,7 +44,7 @@ export default function ArtistsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { name: "Lakshan Sanjula", role: "Artist", image: "/lakshan_sanjula.jpeg", location: "Colombo" },
-          { name: "Kasun Kalhara", role: "Musician", image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2940&auto=format&fit=crop", location: "Colombo" },
+          { name: "Kasun Kalhara", role: "Musician", image: "/kasun_kalhara.jpg", location: "Colombo" },
           { name: "Upeka Chitrasena", role: "Dancer", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop", location: "Colombo" },
           { name: "Artist Name 4", role: "Painter", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop", location: "Kandy" },
           { name: "Artist Name 5", role: "Sculptor", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop", location: "Galle" },

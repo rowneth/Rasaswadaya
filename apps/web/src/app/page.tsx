@@ -102,7 +102,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { name: "Lakshan Sanjula", role: "Artist", image: "/lakshan_sanjula.jpeg" },
-              { name: "Kasun Kalhara", role: "Musician", image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2940&auto=format&fit=crop" },
+              { name: "Kasun Kalhara", role: "Musician", image: "/kasun_kalhara.jpg" },
               { name: "Upeka Chitrasena", role: "Dancer", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" }
             ].map((artist, i) => (
               <div key={i} className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 p-4 text-center hover:border-brand-200 transition-colors">
